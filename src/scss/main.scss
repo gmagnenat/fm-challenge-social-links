@@ -1,0 +1,198 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-VariableFont_slnt,wght.ttf");
+  font-weight: 100 1000;
+  font-stretch: 25% 151%;
+}
+
+// colors
+$clr-primary: hsl(75, 94%, 57%);
+
+$clr-white: hsl(0, 0%, 100%);
+$clr-grey: hsl(0, 0%, 20%);
+$clr-dark-grey: hsl(0, 0%, 12%);
+$clr-off-black: hsl(0, 0%, 8%);
+
+// font-sizes
+$fs-s: 14px;
+$fs-l: 24px;
+
+// font-weight
+$fw-normal: 400;
+$fw-semibold: 600;
+$fw-bold: 700;
+
+// spacing
+$space-s: 0.75rem; // 12px
+$space-m: 1rem; // 16px
+$space-xl: 1.5rem; // 24px
+
+// utility
+$radius-xs: calc($space-m / 2);
+$radius-s: $space-s;
+$radius-full: 9999px;
+$card-width: clamp(
+  20.4375rem,
+  calc(20.4375rem + ((1vw - 0.2rem) * 6.4773)),
+  24rem
+);
+$card-padding: clamp(1.5rem, calc(1.5rem + ((1vw - 0.2rem) * 1.8182)), 2.5rem);
+
+// extends
+%flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+%flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+%social-button {
+  background-color: $clr-grey;
+  width: 100%;
+  padding-block: $space-s;
+  border-radius: $radius-xs;
+  font-weight: $fw-bold;
+  transition: all ease-in-out 0.2s;
+
+  &:hover {
+    background-color: $clr-primary;
+    color: $clr-off-black;
+  }
+}
+
+// CSS RESET
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  justify-content: center;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: $clr-off-black;
+  color: $clr-white;
+  font-size: $fs-s;
+  font-family: "Inter";
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: $clr-white;
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :has(:target) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+  }
+}
+
+#main {
+  @extend %flex-col;
+  justify-content: center;
+  height: 100svh;
+}
+
+.profile {
+  width: $card-width;
+  background-color: $clr-dark-grey;
+  align-self: center;
+  padding: $card-padding;
+  text-align: center;
+  border-radius: $radius-xs;
+
+  &__header {
+    @extend %flex-col;
+    gap: $space-xl;
+  }
+
+  &__avatar {
+    display: flex;
+    justify-content: center;
+
+    img {
+      border-radius: $radius-full;
+      width: 88px;
+    }
+  }
+
+  &__meta {
+    @extend %flex-col;
+    gap: 4px;
+  }
+
+  &__heading {
+    color: $clr-white;
+    font-size: $fs-l;
+    font-weight: $fw-semibold;
+  }
+
+  &__location {
+    color: $clr-primary;
+    font-weight: $fw-bold;
+  }
+
+  &__main {
+    width: 100%;
+    margin-top: $space-xl;
+  }
+
+  &__links {
+    @extend %flex-col;
+    list-style-type: none;
+    padding: 0;
+    gap: $space-m;
+  }
+
+  &__link-item {
+    display: flex;
+    a {
+      @extend %social-button;
+    }
+  }
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  margin-block: $space-xl;
+}
