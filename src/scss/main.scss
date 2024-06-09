@@ -14,8 +14,8 @@ $clr-dark-grey: hsl(0, 0%, 12%);
 $clr-off-black: hsl(0, 0%, 8%);
 
 // font-sizes
-$fs-s: 14px;
-$fs-l: 24px;
+$fs-s: 0.875rem;
+$fs-l: 1.5rem;
 
 // font-weight
 $fw-normal: 400;
@@ -53,7 +53,7 @@ $card-padding: clamp(1.5rem, calc(1.5rem + ((1vw - 0.2rem) * 1.8182)), 2.5rem);
   background-color: $clr-grey;
   width: 100%;
   padding-block: $space-s;
-  border-radius: $radius-xs;
+  border-radius: $radius-s;
   font-weight: $fw-bold;
   transition: all ease-in-out 0.2s;
 
@@ -131,7 +131,7 @@ a {
 #main {
   @extend %flex-col;
   justify-content: center;
-  height: 100svh;
+  min-height: 100svh;
 }
 
 .profile {
@@ -153,13 +153,13 @@ a {
 
     img {
       border-radius: $radius-full;
-      width: 88px;
+      width: 5.5rem;
     }
   }
 
   &__meta {
     @extend %flex-col;
-    gap: 4px;
+    gap: 0.25rem;
   }
 
   &__heading {
